@@ -1,4 +1,5 @@
 from multiprocessing import Process
+import time
 
 MAX_N       = 1000000
 K           = 2
@@ -85,6 +86,12 @@ def josephus(n, k):
 
     return r+1
 
+def josephus_clean(n,k):
+    r = 1
+    for i in range(1, n + 1):
+        r = (r + k) % i
+    return r + 1
+
 def bf_jos(func,args,kwargs):
     """Runs a function that has to be brute forced
 
@@ -125,7 +132,17 @@ def bf_jos(func,args,kwargs):
 # Main program
 if __name__ == '__main__':
 
-    # 103921 is the Nth numer that are calculated within 10 minutes
+    # if we brute force the josephus function
+    # we will get to number 103.921 within 10 minutes
+    # if we only calculate one number within 10 minutes
+    # we are able to calculate the number 900.000.000
 
-    run_with_limited_time(bf_jos, (josephus, (K,MAX_N), {}), {}, TEN_MINUTES)
-    #print josephus(103921,2)
+    #run_with_limited_time(bf_jos, (josephus, (K,MAX_N), {}), {}, TEN_MINUTES)
+
+    start_time = time.time()
+    print "900000000"
+    print josephus(900000000, K)
+    print("--- %s seconds ---" % (time.time() - start_time))
+
+    print "103921"
+    print josephus(103921,K)
