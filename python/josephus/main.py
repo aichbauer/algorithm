@@ -135,7 +135,7 @@ if __name__ == '__main__':
     # if we brute force the josephus function
     # we will get to number 103.921 within 10 minutes
     # if we only calculate one number within 10 minutes
-    # we are able to calculate the number 1.350.000.000
+    # we are able to get the survivor of 1.350.000.000 Persons
 
     run_with_limited_time(bf_jos, (josephus, (K,MAX_N), {}), {}, TEN_MINUTES)
 
