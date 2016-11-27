@@ -86,7 +86,7 @@ def josephus(n, k):
 
     return r+1
 
-def josephus_clean(n,k):
+def josephus(n,k):
     r = 1
     for i in range(1, n + 1):
         r = (r + k) % i
@@ -135,14 +135,14 @@ if __name__ == '__main__':
     # if we brute force the josephus function
     # we will get to number 103.921 within 10 minutes
     # if we only calculate one number within 10 minutes
-    # we are able to calculate the number 900.000.000
+    # we are able to calculate the number 1.350.000.000
 
-    #run_with_limited_time(bf_jos, (josephus, (K,MAX_N), {}), {}, TEN_MINUTES)
+    run_with_limited_time(bf_jos, (josephus, (K,MAX_N), {}), {}, TEN_MINUTES)
 
-    start_time = time.time()
-    print "900000000"
-    print josephus(900000000, K)
-    print("--- %s seconds ---" % (time.time() - start_time))
+    #start_time = time.time()
+    #print "1350000000"
+    #print josephus(1350000000, K)
+    #print("--- %s seconds ---" % (time.time() - start_time))
 
-    print "103921"
-    print josephus(103921,K)
+    #print "103921"
+    #print josephus(103921,K)
